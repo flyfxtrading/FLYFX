@@ -40,7 +40,118 @@ footer{text-align:center;padding:25px;color:#999}
 <p id="message"></p>
 </section>
 
-<section class="card hidden" id="dashboard">
+
+<section id="dashboard" class="hidden" style="background:#080d18;color:#fff;padding:14px;font-family:Arial,sans-serif;min-height:100vh">
+
+<style>
+#dashboard .top{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+#dashboard .green{color:#00d69a}
+#dashboard .panel{background:#111b2b;border:1px solid #263449;border-radius:12px;padding:14px;margin:12px 0}
+#dashboard .muted{color:#8492a8;font-size:12px}
+#dashboard button{border:0;border-radius:8px;padding:13px;color:white;font-weight:bold}
+#dashboard .buy{background:#00a879}
+#dashboard .sell{background:#d83255}
+#dashboard input,#dashboard select{background:#080d18;color:white;border:1px solid #35445a;padding:12px;border-radius:7px;width:100%;box-sizing:border-box}
+#dashboard .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#dashboard .metric{background:#172438;padding:12px;border-radius:9px}
+#dashboard .chart{width:100%;height:190px}
+#dashboard .actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+</style>
+
+<div class="top">
+ <div><h2 style="margin:0">FLY<span class="green">FX</span></h2><small class="muted">AI TRADING TERMINAL</small></div>
+ <button onclick="logout()" style="background:#263449">Logout</button>
+</div>
+
+<div class="panel">
+ <div class="muted">ACCOUNT BALANCE</div>
+ <h2 class="green">$0.00</h2>
+ <small class="muted">Demo dashboard • Connect account for balance</small>
+</div>
+
+<div class="top">
+ <h3>Market Watch</h3>
+ <span class="green">● MARKET</span>
+</div>
+
+<div class="panel">
+ <label class="muted">SELECT MARKET</label>
+ <select id="market">
+  <option>XAUUSD - GOLD</option>
+  <option>EURUSD</option>
+  <option>GBPUSD</option>
+  <option>BTCUSD</option>
+ </select>
+ <h2 id="marketName">XAUUSD / GOLD</h2>
+ <div class="muted">LIVE PRICE FEED NOT CONNECTED</div>
+ <h2>Waiting for market data</h2>
+</div>
+
+<div class="panel">
+ <div class="top">
+  <h3>Price Chart</h3>
+  <span class="muted">DEMO VIEW</span>
+ </div>
+ <svg class="chart" viewBox="0 0 600 190" preserveAspectRatio="none">
+  <g stroke="#263449" stroke-width="1">
+   <path d="M0 40H600 M0 90H600 M0 140H600"/>
+   <path d="M100 0V190 M200 0V190 M300 0V190 M400 0V190 M500 0V190"/>
+  </g>
+  <polyline points="0,160 35,120 65,135 95,80 125,105 155,55 185,85 215,65 245,125 275,150 305,110 335,125 365,70 395,90 425,45 455,75 485,30 515,55 545,20 575,40 600,15" fill="none" stroke="#00d69a" stroke-width="3"/>
+ </svg>
+ <small class="muted">Illustrative chart only. Not live market data.</small>
+</div>
+
+<div class="top">
+ <h3>AI Market Scanner</h3>
+ <span class="green">✦ FLYFX AI</span>
+</div>
+
+<div class="panel">
+ <h3>Market Analysis</h3>
+ <p class="muted">AI scanner connection pending.</p>
+ <button style="background:#176b61;width:100%" onclick="alert('AI Scanner connection is not yet configured.')">SCAN MARKET</button>
+</div>
+
+<h3>Trading Panel</h3>
+<div class="panel">
+ <label class="muted">LOT SIZE</label>
+ <input type="number" id="lotSize" value="0.01" min="0.01" step="0.01">
+ <div class="grid" style="margin-top:12px">
+  <div>
+   <label class="muted">TAKE PROFIT</label>
+   <input type="number" placeholder="TP">
+  </div>
+  <div>
+   <label class="muted">STOP LOSS</label>
+   <input type="number" placeholder="SL">
+  </div>
+ </div>
+ <div class="actions" style="margin-top:15px">
+  <button class="buy" onclick="alert('Demo interface only. No trade was placed.')">BUY</button>
+  <button class="sell" onclick="alert('Demo interface only. No trade was placed.')">SELL</button>
+ </div>
+ <p class="muted">Trading connection not configured. Buttons do not place trades.</p>
+</div>
+
+<h3>Positions</h3>
+<div class="panel">
+ <p class="muted">No connected trading account.</p>
+ <p>Open positions will appear here when trading integration is configured.</p>
+</div>
+
+<div class="panel">
+ <h3>FLYFX BOT</h3>
+ <p class="green">● Dashboard ready</p>
+ <p class="muted">Automated trading connection pending.</p>
+</div>
+
+<footer class="muted" style="text-align:center;padding:20px">
+ FLYFX © 2026<br>Trade responsibly. Trading involves risk.
+</footer>
+
+</section>
+
 <h2>Welcome to FLYFX!</h2>
 <p>You are successfully logged in.</p>
 <button onclick="logout()">Logout</button>
